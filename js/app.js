@@ -136,6 +136,7 @@ $(function() {
 
         search: function(e) {
             var q = Cmdr.searchText.value;
+            q = q.toLowerCase();
 			
 			if (q.search( 'www.' ) == 0){
 				window.location.href = 'https://' + q;
