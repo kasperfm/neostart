@@ -1,6 +1,8 @@
 // Configuration
 var unsplashCollectionID = 1369542;
+var enableWeather = true;
 var defaultWeatherLocation = 'Viborg';
+var weatherTemperatureUnit = 'c';
 var defaultSearchBaseURL = 'https://encrypted.google.com/search?q=';
 
 function initLocation() {
@@ -12,34 +14,17 @@ function initLocation() {
         };
 
         function success(pos) {
-            var crd = pos.coords;
-            loadWeather(pos.coords.latitude + ',' + pos.coords.longitude);
-        };
+            getWeather(pos.coords.latitude + ',' + pos.coords.longitude, weatherTemperatureUnit);
+        }
 
         function error(err) {
             console.error("Location error: " + err.message);
-        };
+        }
 
         navigator.geolocation.getCurrentPosition(success, error, options);
     } else {
-        loadWeather(defaultWeatherLocation, '');
+       getWeather(defaultWeatherLocation, 'c', false);
     }
-}
-
-function loadWeather(location, woeid) {
-    $.simpleWeather({
-        location: location,
-        woeid: woeid,
-        unit: 'c',
-        success: function (weather) {
-			var weatherInfo = 'It is ' + weather.temp + weather.units.temp + ' in ' + weather.city;
-			$("#weather").text(weatherInfo);
-        },
-        error: function (error) {
-			console.log(error);
-            $("#weather").html('<p>' + error + '</p>');
-        }
-    });
 }
 
 function timedQuotes() {
@@ -193,5 +178,7 @@ $(function() {
 
     $('#quotes').text(timedQuotes());
 
-    initLocation();
+    if(enableWeather) {
+        initLocation();
+    }
 }());

@@ -12,7 +12,7 @@ Features:
 - Random beautiful background images from unsplash.
 - Fast search on your favorite websites.
 - A fancy clock.
-- Temperature display of the weather on your location.
+- Weather temperature display on your location.
 - Display friendly quotes depending on the time.
 
 And it can all be customized!
