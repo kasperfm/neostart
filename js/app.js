@@ -1,6 +1,6 @@
 // Configuration
 var unsplashCollectionID = 1369542;
-var enableWeather = true;
+var enableWeather = false;
 var defaultWeatherLocation = 'Viborg';
 var weatherTemperatureUnit = 'c';
 var defaultSearchBaseURL = 'https://encrypted.google.com/search?q=';
@@ -168,7 +168,7 @@ $(function() {
             { key: 'g', name: 'GitHub', url: 'https://github.com', search: '/search?q=' },
             { key: 'k', name: 'Keep', url: 'https://keep.google.com', search: '/#search/text=' },
             { key: 'm', name: 'GMail', url: 'https://mail.google.com', search: '/mail/u/0/#search/' },
-            { key: 'p', name: 'Plex', url: 'https://app.plex.tv/desktop'},
+            { key: 'p', name: 'Plex', url: 'https://app.plex.tv/desktop', search: '#!/search?query=' },
             { key: 'r', name: 'Reddit', url: 'https://www.reddit.com', search: '/search?q=' },
             { key: 's', name: 'Spotify', url: 'https://play.spotify.com', search: '/search/' },
             { key: 't', name: 'Twitter', url: 'https://twitter.com', search: '/search?q=' },
