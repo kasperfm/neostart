@@ -1,8 +1,7 @@
 // Configuration
 var unsplashCollectionID = 1369542;
 var enableWeather = false;
-var defaultWeatherLocation = 'Viborg';
-var weatherTemperatureUnit = 'c';
+var weatherTemperatureUnit = 'M'; // M = Celcius, I = Fahrenheit
 var defaultSearchBaseURL = 'https://encrypted.google.com/search?q=';
 
 function initLocation() {
@@ -22,8 +21,6 @@ function initLocation() {
         }
 
         navigator.geolocation.getCurrentPosition(success, error, options);
-    } else {
-       getWeather(defaultWeatherLocation, 'c', false);
     }
 }
 
