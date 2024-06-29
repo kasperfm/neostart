@@ -1,5 +1,7 @@
 // Configuration
 var unsplashCollectionID = 1369542;
+var unsplashAccessKey = 'USE_YOUR_OWN';
+var unsplashImageWidth = 3840;
 var enableWeather = false;
 var weatherTemperatureUnit = 'M'; // M = Celcius, I = Fahrenheit
 var defaultSearchBaseURL = 'https://encrypted.google.com/search?q=';
@@ -75,9 +77,16 @@ function timedQuotes() {
     }
 }
 
-function loadRandomBackgroundImage() {
-    var imageSrc = 'https://source.unsplash.com/collection/' + unsplashCollectionID + '/1920x1200';
-    $('body').css('background-image', 'url(' + imageSrc + ')');
+async function loadRandomBackgroundImage() {
+    if (unsplashAccessKey === 'USE_YOUR_OWN' || !unsplashAccessKey) {
+        console.error('No Unsplash access key set!');
+        return;
+    }
+
+    const response = await fetch('https://api.unsplash.com/photos/random/?count=1&collections=' + unsplashCollectionID + '&client_id=' + unsplashAccessKey);
+    const imageData = await response.json();
+    var imageSrc = imageData[0].urls.full;
+    $('body').css('background-image', 'url(' + imageSrc + '&w=' + unsplashImageWidth + ')');
 }
 
 $(function() {

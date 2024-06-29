@@ -34,6 +34,13 @@
             <pre class="help" id="js-help"></pre>
         </div>
     </div>
-    <script src="js/app.js" type="text/javascript"></script>
+
+    <script>
+        // Prevent caching of the app.js file
+        var timeVar = (+new Date).toString(36).slice(-8);
+        var scr = document.createElement("script");
+        scr.src = "js/app.js?r=" + timeVar;
+        document.getElementsByTagName("head")[0].appendChild(scr);
+    </script>
 </body>
 </html>
