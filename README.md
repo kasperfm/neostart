@@ -1,7 +1,7 @@
 # NeoStart
 My personal startpage.
 
-Demo: https://kasperfm.com/startpage/demo/
+Demo: https://faerch.dev/startpage/demo/
 
 The startpage is written in HTML + JS + CSS, and do not require any database or serverside code.
 Feel free to modify it, and use it as you want, but please provide a link to this repository :)
